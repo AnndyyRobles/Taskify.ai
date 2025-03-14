@@ -1,7 +1,5 @@
 # Taskify.ai
 
-![Taskify.ai Banner](./images/banner.jpg)
-
 A powerful chat-based application that helps you organize conversations with AI through intelligent subchats. This platform enables you to maintain order in your main discussions while allowing specialized subchats to inherit context from parent conversations.
 
 ## Features
