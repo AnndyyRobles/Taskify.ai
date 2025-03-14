@@ -2,6 +2,20 @@
 
 A powerful chat-based application that helps you organize conversations with AI through intelligent subchats. This platform enables you to maintain order in your main discussions while allowing specialized subchats to inherit context from parent conversations.
 
+taskify-ai/
+├── server.js             # Express server and AI model integration
+├── public/               # Static assets
+├── src/
+│   ├── App.jsx           # Main application component
+│   ├── styles.css        # Global styles
+│   ├── components/       # UI components
+│   │   ├── ChatContainer.jsx    # Message display and input
+│   │   ├── CodeSnippet.jsx      # Code block viewer
+│   │   ├── FileSidebar.jsx      # File management panel
+│   │   └── Sidebar.jsx          # Chat navigation
+│   └── context/
+│       └── ChatContext.jsx      # State management and logic
+
 ## Features
 
 - **Hierarchical Chat System**: Create subchats that inherit and learn from main conversations
@@ -14,12 +28,12 @@ A powerful chat-based application that helps you organize conversations with AI 
 
 Here's a glimpse of Taskify.ai in action:
 
-![Task Screen 1](tsk1.jpeg)
-![Task Screen 2](tsk2.jpeg)
-![Task Screen 3](tsk3.jpeg)
-![Task Screen 4](tsk4.jpeg)
-![Task Screen 5](tsk5.jpeg)
-![Task Screen 6](tsk6.jpeg)
+![Task Screen 1](./images/tsk1.jpeg)
+![Task Screen 2](./images/tsk2.jpeg)
+![Task Screen 3](./images/tsk3.jpeg)
+![Task Screen 4](./images/tsk4.jpeg)
+![Task Screen 5](./images/tsk5.jpeg)
+![Task Screen 6](./images/tsk6.jpeg)
 
 ## Technologies Used
 
@@ -60,6 +74,47 @@ When you send a message in a subchat:
 - A professional code viewer provides syntax highlighting, theme switching, and copy/download functionality
 - All generated code is accessible through the file sidebar
 
+## Core Functions
+
+The application's functionality is powered by these key mechanisms:
+
+### createNewSubchat()
+- Creates a new subchat connected to a parent chat
+- Automatically generates a summary of the parent chat
+- Stores this summary as `parentContext` for reference by the subchat
+- Ensures the subchat has access to all relevant information from its parent
+
+### sendMessage()
+- Handles message sending for both main chats and subchats
+- For subchats: includes the parent context in API requests to maintain continuity
+- Updates the chat's state with user messages immediately while waiting for AI response
+- Manages the typing indicator and error handling
+
+### extractCodeBlocks()
+- Detects code snippets in AI responses using regex pattern matching
+- Parses language information from markdown code block syntax
+- Creates structured data objects for each code block
+- Enables proper rendering and interaction with code in the UI
+
+### getActiveChat()
+- Returns the currently active chat or subchat based on selected IDs
+- Determines whether to display main chat or subchat content
+- Ensures the right files and context are available for the current view
+
+### Context Update Flow
+When a new message is sent to a main chat:
+1. The message is processed and the AI response is received
+2. The main chat's message history is updated
+3. A new summary is created containing all messages
+4. This summary is propagated to all subchats as their `parentContext`
+5. All subchats now have access to the latest information from the parent
+
+When a new message is sent to a subchat:
+1. The system retrieves the parent context
+2. This context is included as a system message to the AI
+3. The AI's response is tailored to the subchat while maintaining awareness of the main conversation
+4. Only the subchat's message history is updated, keeping the main chat clean
+
 ## Installation
 
 ```bash
@@ -76,3 +131,4 @@ cp .env.example .env
 
 # Start the development server
 npm run dev
+```
