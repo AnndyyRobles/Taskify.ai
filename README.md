@@ -1,6 +1,7 @@
 # Taskify.ai
 
 A powerful chat-based application that helps you organize conversations with AI through intelligent subchats. This platform enables you to maintain order in your main discussions while allowing specialized subchats to inherit context from parent conversations.
+![Task Screen 3](tsk3.jpeg)
 
 ```
 taskify-ai/
@@ -30,12 +31,12 @@ taskify-ai/
 
 Here's a glimpse of Taskify.ai in action:
 
-![Task Screen 1](./images/tsk1.jpeg)
-![Task Screen 2](./images/tsk2.jpeg)
-![Task Screen 3](./images/tsk3.jpeg)
-![Task Screen 4](./images/tsk4.jpeg)
-![Task Screen 5](./images/tsk5.jpeg)
-![Task Screen 6](./images/tsk6.jpeg)
+![Task Screen 1](tsk1.jpeg)
+![Task Screen 2](tsk2.jpeg)
+![Task Screen 3](tsk3.jpeg)
+![Task Screen 4](tsk4.jpeg)
+![Task Screen 5](tsk5.jpeg)
+![Task Screen 6](tsk6.jpeg)
 
 ## Technologies Used
 
