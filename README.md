@@ -2,6 +2,7 @@
 
 A powerful chat-based application that helps you organize conversations with AI through intelligent subchats. This platform enables you to maintain order in your main discussions while allowing specialized subchats to inherit context from parent conversations.
 
+```
 taskify-ai/
 ├── server.js             # Express server and AI model integration
 ├── public/               # Static assets
@@ -15,6 +16,7 @@ taskify-ai/
 │   │   └── Sidebar.jsx          # Chat navigation
 │   └── context/
 │       └── ChatContext.jsx      # State management and logic
+```
 
 ## Features
 
